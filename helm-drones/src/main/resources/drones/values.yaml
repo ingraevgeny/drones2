@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: docker.io/dock999evg/drones
-  tag: "dev-9"
+  tag: "dev-01"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
