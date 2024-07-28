@@ -6,6 +6,10 @@
 
 :scroll: **START**
 
+### Description
+
+This project is a part of Microservice Architecture Application example (see approot project)
+
 ### Requirements
 ___
 
