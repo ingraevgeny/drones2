@@ -27,7 +27,7 @@ open the console, go to the drone application project folder and enter the comma
 ___
 
 to use the Drones API, open your browser and follow the link:
-  _http://localhost:8080/drones-api.html_
+  _http://localhost:8085/drones-api.html_
 
 you have to see all the endpoints of the app.
 You can expand e.g. /getAvailableDrones, press _Execute_ button and then discover a server response. 
