@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "drones.fullname" . }}
+  labels:
+    app: drones
+spec:
+  hostname: drones2
+  containers:
+    - name: {{ .Chart.Name }}
+      image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 8083

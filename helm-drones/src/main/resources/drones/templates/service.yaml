@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: drones
+  labels:
+    app: drones
+spec:
+  sessionAffinity: "ClientIP"
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+  selector:
+    app: drones
