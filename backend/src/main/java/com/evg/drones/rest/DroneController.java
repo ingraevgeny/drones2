@@ -30,7 +30,7 @@ public class DroneController {
             return new ResponseEntity<>("Registered Drone: " +
                     ignoringObjectMapper.writeValueAsString(droneService.createDrone(drone)), HttpStatus.OK );
         } catch (Exception exception) {
-            return new ResponseEntity<>("Drone was not registered: " + Arrays.toString(exception.getStackTrace()), HttpStatus.OK);
+            return new ResponseEntity<>("Drone was not registered: " + Arrays.toString(exception.getStackTrace()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -71,7 +71,7 @@ public class DroneController {
                     ignoringObjectMapper.writeValueAsString(order), HttpStatus.OK);
         } catch(Exception ex) {
             return new ResponseEntity<>("Drone was not loaded: " +
-                    ignoringObjectMapper.writeValueAsString(ex.getMessage()) + ignoringObjectMapper.writeValueAsString(ex.getCause()), HttpStatus.OK);
+                    ignoringObjectMapper.writeValueAsString(ex.getMessage()) + ignoringObjectMapper.writeValueAsString(ex.getCause()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
