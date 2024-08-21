@@ -19,7 +19,7 @@ public class Drone {
             name = "customers-sequence-generator",
             type = org.hibernate.id.enhanced.SequenceStyleGenerator.class,
             parameters = {
-                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "customers_sequence"),
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "drones_sequence"),
                     @org.hibernate.annotations.Parameter(name = "initial_value", value = "10"),
                     @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
             })

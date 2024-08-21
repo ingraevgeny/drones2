@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @Slf4j
@@ -30,14 +32,16 @@ public class CheckBatteryLevelPeriodicTask {
     @Async
     public void performTask() {
 
-        droneRepository.findAll().forEach(d ->
-            logBatteryLevelRepository.save(LogBatteryLevel.builder()
-                        .drone(d)
-                        .state(d.getState())
-                        .batteryLevel(droneService.getDroneBatteryLevel(d.getId()))
-                        .currentTime(LocalDateTime.now())
-                    .build())
-        );
+        List<LogBatteryLevel> logBatteryLevels = new ArrayList<>();
+
+        droneRepository.findAll().forEach(d -> logBatteryLevels.add(LogBatteryLevel.builder()
+                            .drone(d)
+                            .state(d.getState())
+                            .batteryLevel(droneService.getDroneBatteryLevel(d.getId()))
+                            .currentTime(LocalDateTime.now())
+                        .build()));
+
+        logBatteryLevelRepository.saveAll(logBatteryLevels);
 
         log.info("Log battery level task performed at {}", LocalDateTime.now());
     }
